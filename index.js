@@ -6,6 +6,7 @@ const app = express();
 
 //importar el modelo
 require("./models/Clientes");
+require("./models/Servicios");
 
 // Crear la conexion a la BD
 const db = require("./config/db");

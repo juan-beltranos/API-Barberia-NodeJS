@@ -46,3 +46,32 @@ exports.mostrarCliente = async (req, res, next) => {
     next();
   }
 };
+
+//Actualizar cliente
+exports.actualizarCliente = async (req, res, next) => {
+  try {
+    const actualizarCliente = req.body;
+    //console.log(actualizarCliente);
+    await Clientes.update(
+      { actualizarCliente },
+      { where: { id: req.params.idCliente } }
+    );
+    res.json(actualizarCliente);
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
+
+//Eliminar cliente
+exports.eliminarCliente = async (req, res, next) => {
+  try {
+    await Clientes.destroy({
+      where: { id: req.params.idCliente },
+    });
+    res.json({ mensaje: "El cliente se ha eliminado" });
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};

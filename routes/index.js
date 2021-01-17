@@ -3,6 +3,7 @@ const router = express.Router();
 
 const clienteController = require("../controllers/clienteController");
 const serviciosController = require("../controllers/serviciosController");
+const citaController = require("../controllers/citaController");
 
 module.exports = function () {
   /**-----------------------CLIENTES-------------------- */
@@ -33,10 +34,28 @@ module.exports = function () {
   router.get("/servicios/:idServicio", serviciosController.mostrarServicio);
 
   //Actualizar servicio
-  router.put('/servicios/:idServicio', serviciosController.actualizarServicio);
+  router.put("/servicios/:idServicio", serviciosController.actualizarServicio);
 
   //Eliminar Servico
-  router.delete('/servicios/:idServicio', serviciosController.eliminarServicio);
+  router.delete("/servicios/:idServicio", serviciosController.eliminarServicio);
+
+  /**-----------------------CITAS-------------------- */
+
+  // Agregar una cita POST
+  router.post("/citas", citaController.nuevaCita);
+
+  //Mostrar citas
+  router.get("/citas", citaController.mostrarCitas);
+
+  //Mostrar citas po ID
+  router.get('/citas/:idCita', citaController.mostrarCita);
+
+  //Actualziar Cita
+  router.put('/citas/:idCita', citaController.actualizarCita);
+
+  //Eliminar Cita
+  router.delete('/citas/:idCita', citaController.eliminarCita);
+
 
   return router;
 };

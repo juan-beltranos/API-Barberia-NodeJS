@@ -7,10 +7,11 @@ const app = express();
 //importar el modelo
 require("./models/Clientes");
 require("./models/Servicios");
+require("./models/Citas");
 
 // Crear la conexion a la BD
 const db = require("./config/db");
-db.sync()
+db.sync({ force: false })
   .then(() => console.log("conectado al servidor"))
   .catch((error) => console.log(error));
 

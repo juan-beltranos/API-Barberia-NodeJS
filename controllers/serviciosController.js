@@ -42,11 +42,7 @@ exports.mostrarServicio = async (req, res, next) => {
 
 exports.actualizarServicio = async (req, res, next) => {
   try {
-    const actualizarServicio = req.body;
-    await Servicios.update(
-      { actualizarServicio },
-      { where: { id: req.params.idServicio } }
-    );
+    await Servicios.update(req.body, { where: { id: req.params.idServicio } });
     res.json(actualizarServicio);
   } catch (error) {
     console.log(error);

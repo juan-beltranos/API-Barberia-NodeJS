@@ -50,12 +50,8 @@ exports.mostrarCliente = async (req, res, next) => {
 //Actualizar cliente
 exports.actualizarCliente = async (req, res, next) => {
   try {
-    const actualizarCliente = req.body;
     //console.log(actualizarCliente);
-    await Clientes.update(
-      { actualizarCliente },
-      { where: { id: req.params.idCliente } }
-    );
+    await Clientes.update(req.body, { where: { id: req.params.idCliente } });
     res.json(actualizarCliente);
   } catch (error) {
     console.log(error);

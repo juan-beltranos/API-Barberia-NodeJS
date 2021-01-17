@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const db = require("../config/db");
-
 const Clientes = require("./Clientes");
 
 const Citas = db.define("citas", {

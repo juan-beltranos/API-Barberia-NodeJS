@@ -8,6 +8,7 @@ const app = express();
 require("./models/Clientes");
 require("./models/Servicios");
 require("./models/Citas");
+require("./models/CitasServicios");
 
 // Crear la conexion a la BD
 const db = require("./config/db");

@@ -5,6 +5,7 @@ const clienteController = require("../controllers/clienteController");
 const serviciosController = require("../controllers/serviciosController");
 const citaController = require("../controllers/citaController");
 const citaServiciosController = require("../controllers/citaServiciosController");
+const usuariosController = require("../controllers/usuariosController");
 
 module.exports = function () {
   /**-----------------------CLIENTES-------------------- */
@@ -49,30 +50,47 @@ module.exports = function () {
   router.get("/citas", citaController.mostrarCitas);
 
   //Mostrar citas po ID
-  router.get('/citas/:idCita', citaController.mostrarCita);
+  router.get("/citas/:idCita", citaController.mostrarCita);
 
   //Actualziar Cita
-  router.put('/citas/:idCita', citaController.actualizarCita);
+  router.put("/citas/:idCita", citaController.actualizarCita);
 
   //Eliminar Cita
-  router.delete('/citas/:idCita', citaController.eliminarCita);
+  router.delete("/citas/:idCita", citaController.eliminarCita);
 
-   /**-----------------------CITAS-SERVICIOS-------------------- */
+  /**-----------------------CITAS-SERVICIOS-------------------- */
 
-   //Agregar cita-cliente-servicios
-   router.post('/cita-servicios',citaServiciosController.nuevaCitaServicio);
+  //Agregar cita-cliente-servicios
+  router.post("/cita-servicios", citaServiciosController.nuevaCitaServicio);
 
-   //Mostrar cita-cliente-servicios
-   router.get('/cita-servicios',citaServiciosController.mostrarCitaServicios);
+  //Mostrar cita-cliente-servicios
+  router.get("/cita-servicios", citaServiciosController.mostrarCitaServicios);
 
-   //Mostrar cita-cliente-servicios por ID
-   router.get('/cita-servicios/:id',citaServiciosController.mostrarCitaServicio);
+  //Mostrar cita-cliente-servicios por ID
+  router.get(
+    "/cita-servicios/:id",
+    citaServiciosController.mostrarCitaServicio
+  );
 
-   //Actualizar cita-cliente-servicios por ID
-   router.put('/cita-servicios/:id',citaServiciosController.actualizarCitaServicio);
+  //Actualizar cita-cliente-servicios por ID
+  router.put(
+    "/cita-servicios/:id",
+    citaServiciosController.actualizarCitaServicio
+  );
 
-   //Eliminar cita-cliente-servicios por ID
-   router.delete('/cita-servicios/:id',citaServiciosController.eliminarCitaServicio);
+  //Eliminar cita-cliente-servicios por ID
+  router.delete(
+    "/cita-servicios/:id",
+    citaServiciosController.eliminarCitaServicio
+  );
+
+  /**-----------------------USUARIOS-------------------- */
+
+  //Crear Cuenta
+  router.post("/crear-cuenta", usuariosController.registrarUsuario);
+
+  // iniciar Sesion
+  router.post("/iniciar-sesion", usuariosController.autenticarUsuario);
 
   return router;
 };

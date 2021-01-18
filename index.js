@@ -9,6 +9,7 @@ require("./models/Clientes");
 require("./models/Servicios");
 require("./models/Citas");
 require("./models/CitasServicios");
+require("./models/Usuarios");
 
 // Crear la conexion a la BD
 const db = require("./config/db");

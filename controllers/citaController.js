@@ -1,11 +1,10 @@
 const Citas = require("../models/Citas");
-const Clientes = require("../models/Clientes");
 
 exports.nuevaCita = async (req, res, next) => {
   try {
     const { fecha, hora } = req.body;
 
-    const nuevaCita = await Citas.create({
+    await Citas.create({
       fecha,
       hora,
       clienteId: req.body.clienteId,

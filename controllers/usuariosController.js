@@ -23,7 +23,7 @@ exports.autenticarUsuario = async (req, res, next) => {
     await res.status(401).json({ mensaje: "Ese usuario no existe" });
     next();
   } else {
-    if ((!password, usuario.password)) {
+    if ((!password)) {
       await res.status(401).json({ mensaje: "Password incorrecto" });
       next();
     } else {
